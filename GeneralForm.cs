@@ -70,6 +70,7 @@ namespace MasterFileProject
         #endregion
         // 4.4.	Create a method to filter the Staff Name data from the Dictionary into a second filtered and selectable listbox.
         // This method must use a textbox input and update as each character is entered. The listbox must reflect the filtered data in real time.
+        #region Filter by Name
         private void FilterStaffName()
         {
 
@@ -81,21 +82,17 @@ namespace MasterFileProject
                 }
             }
         }
-
-        private void FilterStaffId()
-        {
-            foreach (var staff in MasterFile)
-            {
-                if (staff.Key == int.Parse(staffIdTextbox.Text))
-                {
-                    filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
-                }
-            }
-        }
         private void staffNameTextbox_KeyUp(object sender, KeyEventArgs e)
         {
             filteredListbox.Items.Clear();
             FilterStaffName();
+        }
+        #endregion
+        // 4.5.	Create a method to filter the Staff ID data from the Dictionary into the second filtered and selectable list box.
+        // This method must use a textbox input and update as each number is entered. The listbox must reflect the filtered data in real time.
+        #region Filter by ID
+        private void FilterStaffId()
+        {
         }
 
         private void staffIdTextbox_KeyUp(object sender, KeyEventArgs e)
@@ -104,5 +101,7 @@ namespace MasterFileProject
             FilterStaffId();
         }
     }
+    #endregion
 }
+
 

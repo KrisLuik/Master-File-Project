@@ -9,3 +9,14 @@ C:\Users\30045325\Desktop\AssessmentThree\MasterFileProject\obj\Debug\MasterFile
 C:\Users\30045325\Desktop\AssessmentThree\MasterFileProject\obj\Debug\MasterFileProject.csproj.CoreCompileInputs.cache
 C:\Users\30045325\Desktop\AssessmentThree\MasterFileProject\obj\Debug\MasterFileProject.exe
 C:\Users\30045325\Desktop\AssessmentThree\MasterFileProject\obj\Debug\MasterFileProject.pdb
+C:\Users\krist\Documents\GitHub\Master-File-Project\bin\Debug\MasterFileProject.exe.config
+C:\Users\krist\Documents\GitHub\Master-File-Project\bin\Debug\MasterFileProject.exe
+C:\Users\krist\Documents\GitHub\Master-File-Project\bin\Debug\MasterFileProject.pdb
+C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.csproj.AssemblyReference.cache
+C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.csproj.SuggestedBindingRedirects.cache
+C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.GeneralForm.resources
+C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.Properties.Resources.resources
+C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.csproj.GenerateResource.cache
+C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.csproj.CoreCompileInputs.cache
+C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.exe
+C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.pdb
