@@ -40,17 +40,20 @@
             // readOnlyListbox
             // 
             this.readOnlyListbox.FormattingEnabled = true;
-            this.readOnlyListbox.Location = new System.Drawing.Point(12, 37);
+            this.readOnlyListbox.ItemHeight = 16;
+            this.readOnlyListbox.Location = new System.Drawing.Point(16, 46);
+            this.readOnlyListbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.readOnlyListbox.Name = "readOnlyListbox";
             this.readOnlyListbox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.readOnlyListbox.Size = new System.Drawing.Size(209, 342);
+            this.readOnlyListbox.Size = new System.Drawing.Size(277, 420);
             this.readOnlyListbox.TabIndex = 3;
             // 
             // staffIdTextbox
             // 
-            this.staffIdTextbox.Location = new System.Drawing.Point(239, 37);
+            this.staffIdTextbox.Location = new System.Drawing.Point(319, 46);
+            this.staffIdTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.staffIdTextbox.Name = "staffIdTextbox";
-            this.staffIdTextbox.Size = new System.Drawing.Size(209, 20);
+            this.staffIdTextbox.Size = new System.Drawing.Size(277, 22);
             this.staffIdTextbox.TabIndex = 0;
             this.staffIdTextbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.staffIdTextbox_KeyUp);
             // 
@@ -58,53 +61,59 @@
             // 
             this.staffNameTextbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.staffNameTextbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.staffNameTextbox.Location = new System.Drawing.Point(239, 76);
+            this.staffNameTextbox.Location = new System.Drawing.Point(319, 94);
+            this.staffNameTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.staffNameTextbox.Name = "staffNameTextbox";
-            this.staffNameTextbox.Size = new System.Drawing.Size(209, 20);
+            this.staffNameTextbox.Size = new System.Drawing.Size(277, 22);
             this.staffNameTextbox.TabIndex = 1;
             this.staffNameTextbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.staffNameTextbox_KeyUp);
             // 
             // filteredListbox
             // 
             this.filteredListbox.FormattingEnabled = true;
-            this.filteredListbox.Location = new System.Drawing.Point(239, 102);
+            this.filteredListbox.ItemHeight = 16;
+            this.filteredListbox.Location = new System.Drawing.Point(319, 126);
+            this.filteredListbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.filteredListbox.Name = "filteredListbox";
-            this.filteredListbox.Size = new System.Drawing.Size(209, 277);
+            this.filteredListbox.Size = new System.Drawing.Size(277, 340);
             this.filteredListbox.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(236, 21);
+            this.label1.Location = new System.Drawing.Point(315, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Staff ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(236, 60);
+            this.label2.Location = new System.Drawing.Point(315, 74);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Staff Name";
             // 
             // helplistTextbox
             // 
-            this.helplistTextbox.Location = new System.Drawing.Point(466, 37);
+            this.helplistTextbox.Location = new System.Drawing.Point(604, 46);
+            this.helplistTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.helplistTextbox.Multiline = true;
             this.helplistTextbox.Name = "helplistTextbox";
             this.helplistTextbox.ReadOnly = true;
-            this.helplistTextbox.Size = new System.Drawing.Size(124, 149);
+            this.helplistTextbox.Size = new System.Drawing.Size(210, 182);
             this.helplistTextbox.TabIndex = 6;
-            this.helplistTextbox.Text = "Helplist ";
+            this.helplistTextbox.Text = "Helplist \r\n\r\nCtr + D - Clear Staff Name Textbox\r\n";
             // 
             // GeneralForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 405);
+            this.ClientSize = new System.Drawing.Size(827, 498);
             this.Controls.Add(this.helplistTextbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -112,9 +121,12 @@
             this.Controls.Add(this.staffNameTextbox);
             this.Controls.Add(this.staffIdTextbox);
             this.Controls.Add(this.readOnlyListbox);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GeneralForm";
             this.Text = "Master File - General Form";
             this.Load += new System.EventHandler(this.GeneralForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GeneralForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
