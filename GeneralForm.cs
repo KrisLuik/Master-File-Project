@@ -126,6 +126,11 @@ namespace MasterFileProject
                 staffIdTextbox.Clear();
                 staffIdTextbox.Focus();
             }
+            // Close General Form
+            if (e.Control && e.Shift && e.KeyCode == Keys.Q)
+            {
+                this.Close();
+            }
         }
     }
 }

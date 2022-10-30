@@ -108,7 +108,7 @@
             this.helplistTextbox.Size = new System.Drawing.Size(220, 182);
             this.helplistTextbox.TabIndex = 6;
             this.helplistTextbox.Text = "Helplist \r\n\r\nClear Staff ID Textbox (Ctrl + R)\r\n\r\nClear Staff Name Textbox (Ctrl " +
-    "+ D)\r\n";
+    "+ D)\r\n\r\nExit General Form (Ctrl + Shift + Q)\r\n";
             // 
             // GeneralForm
             // 
