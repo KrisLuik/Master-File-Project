@@ -93,6 +93,17 @@ namespace MasterFileProject
         #region Filter by ID
         private void FilterStaffId()
         {
+            foreach(var staff in MasterFile)
+            {
+                if (staff.Key.ToString().Contains(staffIdTextbox.Text))
+                {
+                    filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
+                }
+                else
+                {
+                    MessageBox.Show("Id not found.");
+                }
+            }    
         }
 
         private void staffIdTextbox_KeyUp(object sender, KeyEventArgs e)
