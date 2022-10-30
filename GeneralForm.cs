@@ -56,6 +56,7 @@ namespace MasterFileProject
         }
         #endregion
         // 4.3.	Create a method to display the Dictionary data into a non-selectable display only listbox (ie read only).
+        // 4.8.	Create a method for the filtered and selectable listbox which will populate the two textboxes when a staff record is selected.
         #region Display Data
         private void DisplayData(ListBox listbox)
         {
@@ -99,10 +100,6 @@ namespace MasterFileProject
                 {
                     filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
                 }
-                else
-                {
-                    MessageBox.Show("Id not found.");
-                }
             }    
         }
 
@@ -111,8 +108,19 @@ namespace MasterFileProject
             filteredListbox.Items.Clear();
             FilterStaffId();
         }
+        #endregion
+        // 4.6.	Create a method for the Staff Name textbox which will clear the contents
+        // and place the focus into the Staff Name textbox. Utilise a keyboard shortcut.
+        private void GeneralForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.D)
+            {
+                staffNameTextbox.Clear();
+                staffNameTextbox.Focus();
+            }
+        }
     }
-    #endregion
+    
 }
 
 
