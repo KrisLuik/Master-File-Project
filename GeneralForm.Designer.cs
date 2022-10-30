@@ -105,9 +105,10 @@
             this.helplistTextbox.Multiline = true;
             this.helplistTextbox.Name = "helplistTextbox";
             this.helplistTextbox.ReadOnly = true;
-            this.helplistTextbox.Size = new System.Drawing.Size(210, 182);
+            this.helplistTextbox.Size = new System.Drawing.Size(220, 182);
             this.helplistTextbox.TabIndex = 6;
-            this.helplistTextbox.Text = "Helplist \r\n\r\nCtr + D - Clear Staff Name Textbox\r\n";
+            this.helplistTextbox.Text = "Helplist \r\n\r\nClear Staff ID Textbox (Ctrl + R)\r\n\r\nClear Staff Name Textbox (Ctrl " +
+    "+ D)\r\n";
             // 
             // GeneralForm
             // 

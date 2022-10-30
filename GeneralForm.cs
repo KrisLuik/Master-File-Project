@@ -94,13 +94,13 @@ namespace MasterFileProject
         #region Filter by ID
         private void FilterStaffId()
         {
-            foreach(var staff in MasterFile)
+            foreach (var staff in MasterFile)
             {
                 if (staff.Key.ToString().Contains(staffIdTextbox.Text))
                 {
                     filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
                 }
-            }    
+            }
         }
 
         private void staffIdTextbox_KeyUp(object sender, KeyEventArgs e)
@@ -111,16 +111,23 @@ namespace MasterFileProject
         #endregion
         // 4.6.	Create a method for the Staff Name textbox which will clear the contents
         // and place the focus into the Staff Name textbox. Utilise a keyboard shortcut.
+        // 4.7.	Create a method for the Staff ID textbox which will clear the contents and place the focus into the textbox. Utilise a keyboard shortcut.
         private void GeneralForm_KeyDown(object sender, KeyEventArgs e)
         {
+            // Keyboard shortcut for Staff Name Textbox.
             if (e.Modifiers == Keys.Control && e.KeyCode == Keys.D)
             {
                 staffNameTextbox.Clear();
                 staffNameTextbox.Focus();
             }
+            // Keyboard shortcut for Staff ID Textbox.
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.R)
+            {
+                staffIdTextbox.Clear();
+                staffIdTextbox.Focus();
+            }
         }
     }
-    
 }
 
 
