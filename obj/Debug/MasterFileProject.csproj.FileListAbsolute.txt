@@ -20,3 +20,4 @@ C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.
 C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.csproj.CoreCompileInputs.cache
 C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.exe
 C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.pdb
+C:\Users\krist\Documents\GitHub\Master-File-Project\obj\Debug\MasterFileProject.AdminForm.resources
