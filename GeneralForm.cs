@@ -126,10 +126,16 @@ namespace MasterFileProject
                 staffIdTextbox.Clear();
                 staffIdTextbox.Focus();
             }
-            // Close General Form
+            // Close General Form.
             if (e.Control && e.Shift && e.KeyCode == Keys.Q)
             {
                 this.Close();
+            }
+            // 4.9.	Create a method that will open the Admin Form when the Alt + A keys are pressed. 
+            if (e.Control && e.Shift && e.KeyCode == Keys.A)
+            {
+                AdminForm adminForm = new AdminForm();
+                adminForm.ShowDialog();
             }
         }
     }
