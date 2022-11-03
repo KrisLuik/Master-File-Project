@@ -112,6 +112,7 @@ namespace MasterFileProject
         // 4.6.	Create a method for the Staff Name textbox which will clear the contents
         // and place the focus into the Staff Name textbox. Utilise a keyboard shortcut.
         // 4.7.	Create a method for the Staff ID textbox which will clear the contents and place the focus into the textbox. Utilise a keyboard shortcut.
+        #region General Form 
         private void GeneralForm_KeyDown(object sender, KeyEventArgs e)
         {
             // Keyboard shortcut for Staff Name Textbox.
@@ -132,12 +133,14 @@ namespace MasterFileProject
                 this.Close();
             }
             // 4.9.	Create a method that will open the Admin Form when the Alt + A keys are pressed. 
+            // Ensure the General Form sends the currently selected Staff ID and Staff Name to the Admin Form for Update and Delete purposes and is opened as modal.
             if (e.Control && e.Shift && e.KeyCode == Keys.A)
             {
                 AdminForm adminForm = new AdminForm();
                 adminForm.ShowDialog();
             }
         }
+        #endregion
     }
 }
 
