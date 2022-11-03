@@ -42,16 +42,17 @@
             this.readOnlyListbox.FormattingEnabled = true;
             this.readOnlyListbox.ItemHeight = 16;
             this.readOnlyListbox.Location = new System.Drawing.Point(16, 46);
-            this.readOnlyListbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.readOnlyListbox.Margin = new System.Windows.Forms.Padding(4);
             this.readOnlyListbox.Name = "readOnlyListbox";
             this.readOnlyListbox.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.readOnlyListbox.Size = new System.Drawing.Size(277, 420);
             this.readOnlyListbox.TabIndex = 3;
+            this.readOnlyListbox.TabStop = false;
             // 
             // staffIdTextbox
             // 
             this.staffIdTextbox.Location = new System.Drawing.Point(319, 46);
-            this.staffIdTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.staffIdTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.staffIdTextbox.Name = "staffIdTextbox";
             this.staffIdTextbox.Size = new System.Drawing.Size(277, 22);
             this.staffIdTextbox.TabIndex = 0;
@@ -62,7 +63,7 @@
             this.staffNameTextbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.staffNameTextbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.staffNameTextbox.Location = new System.Drawing.Point(319, 94);
-            this.staffNameTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.staffNameTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.staffNameTextbox.Name = "staffNameTextbox";
             this.staffNameTextbox.Size = new System.Drawing.Size(277, 22);
             this.staffNameTextbox.TabIndex = 1;
@@ -73,10 +74,11 @@
             this.filteredListbox.FormattingEnabled = true;
             this.filteredListbox.ItemHeight = 16;
             this.filteredListbox.Location = new System.Drawing.Point(319, 126);
-            this.filteredListbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.filteredListbox.Margin = new System.Windows.Forms.Padding(4);
             this.filteredListbox.Name = "filteredListbox";
             this.filteredListbox.Size = new System.Drawing.Size(277, 340);
             this.filteredListbox.TabIndex = 4;
+            this.filteredListbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.filteredListbox_KeyDown);
             // 
             // label1
             // 
@@ -101,7 +103,7 @@
             // helplistTextbox
             // 
             this.helplistTextbox.Location = new System.Drawing.Point(604, 46);
-            this.helplistTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.helplistTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.helplistTextbox.Multiline = true;
             this.helplistTextbox.Name = "helplistTextbox";
             this.helplistTextbox.ReadOnly = true;
@@ -123,7 +125,7 @@
             this.Controls.Add(this.staffIdTextbox);
             this.Controls.Add(this.readOnlyListbox);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GeneralForm";
             this.Text = "Master File - General Form";
             this.Load += new System.EventHandler(this.GeneralForm_Load);

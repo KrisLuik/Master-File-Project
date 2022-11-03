@@ -128,19 +128,31 @@ namespace MasterFileProject
                 staffIdTextbox.Focus();
             }
             // Close General Form.
-            if (e.Control && e.Shift && e.KeyCode == Keys.Q)
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.Q)
             {
                 this.Close();
             }
             // 4.9.	Create a method that will open the Admin Form when the Alt + A keys are pressed. 
             // Ensure the General Form sends the currently selected Staff ID and Staff Name to the Admin Form for Update and Delete purposes and is opened as modal.
-            if (e.Control && e.Shift && e.KeyCode == Keys.A)
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.A)
             {
                 AdminForm adminForm = new AdminForm();
                 adminForm.ShowDialog();
             }
         }
         #endregion
+        // If user selects a staff from listbox and presses enter, the results are displayed 
+        // in the Staff ID textbox and the Staff Name textbox.
+        private void filteredListbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string curItem = filteredListbox.SelectedItem.ToString();
+                int indx = readOnlyListbox.FindString(curItem);
+                staffNameTextbox.Text = MasterFile.ElementAt(indx).Value;
+                staffIdTextbox.Text = MasterFile.ElementAt(indx).Key.ToString();
+            }
+        }
     }
 }
 
