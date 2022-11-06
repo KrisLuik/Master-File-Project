@@ -23,6 +23,8 @@ namespace MasterFileProject
         static Dictionary<int, string> MasterFile = new Dictionary<int, string>();
         // 4.2.	Create a method that will read the data from the .csv file
         // into the Dictionary data structure when the form loads.
+        public static string textboxId = "";
+        public static string textboxName = "";
         #region Form Load
         private void GeneralForm_Load(object sender, EventArgs e)
         {
@@ -137,6 +139,7 @@ namespace MasterFileProject
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.A)
             {
                 AdminForm adminForm = new AdminForm();
+
                 adminForm.ShowDialog();
             }
         }
@@ -151,6 +154,11 @@ namespace MasterFileProject
                 int indx = readOnlyListbox.FindString(curItem);
                 staffNameTextbox.Text = MasterFile.ElementAt(indx).Value;
                 staffIdTextbox.Text = MasterFile.ElementAt(indx).Key.ToString();
+                textboxId =  staffIdTextbox.Text;
+                textboxName = staffNameTextbox.Text;
+                AdminForm adminForm = new AdminForm();
+                adminForm.ShowDialog();
+                
             }
         }
     }

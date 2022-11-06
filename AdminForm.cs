@@ -16,5 +16,17 @@ namespace MasterFileProject
         {
             InitializeComponent();
         }
+        //public AdminForm(string generalFormID, string generalFormName)
+        //{
+        //    GeneralForm generalform = new GeneralForm();
+        //    adminFormStaffIIdTextbox.Text = generalFormID;
+        //    adminFormStaffNameTextbox.Text = generalFormName;
+        //}
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            adminFormStaffIIdTextbox.Text = GeneralForm.textboxId;
+            adminFormStaffNameTextbox.Text = GeneralForm.textboxName;   
+        }
     }
 }
