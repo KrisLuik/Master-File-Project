@@ -138,12 +138,11 @@ namespace MasterFileProject
             // Ensure the General Form sends the currently selected Staff ID and Staff Name to the Admin Form for Update and Delete purposes and is opened as modal.
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.A)
             {
-                AdminForm adminForm = new AdminForm();
-
-                adminForm.ShowDialog();
+                sendInfoToAdminForm();
             }
         }
         #endregion
+        #region Filtered Listbox Methods
         // If user selects a staff from listbox and presses enter, the results are displayed 
         // in the Staff ID textbox and the Staff Name textbox.
         private void filteredListbox_KeyDown(object sender, KeyEventArgs e)
@@ -154,13 +153,16 @@ namespace MasterFileProject
                 int indx = readOnlyListbox.FindString(curItem);
                 staffNameTextbox.Text = MasterFile.ElementAt(indx).Value;
                 staffIdTextbox.Text = MasterFile.ElementAt(indx).Key.ToString();
-                textboxId =  staffIdTextbox.Text;
-                textboxName = staffNameTextbox.Text;
-                AdminForm adminForm = new AdminForm();
-                adminForm.ShowDialog();
-                
             }
         }
+        private void sendInfoToAdminForm()
+        { 
+            textboxId = staffIdTextbox.Text;
+            textboxName = staffNameTextbox.Text;
+            AdminForm adminForm = new AdminForm();
+            adminForm.ShowDialog();
+        }
+        #endregion
     }
 }
 
