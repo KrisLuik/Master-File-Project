@@ -23,8 +23,17 @@ namespace MasterFileProject
         static Dictionary<int, string> MasterFile = new Dictionary<int, string>();
         // 4.2.	Create a method that will read the data from the .csv file
         // into the Dictionary data structure when the form loads.
-        public static string textboxId = "";
-        public static string textboxName = "";
+        public GeneralForm(string staffID, string staffName)
+        {
+            this.staffIdTextbox.Text = staffID;
+            this.staffNameTextbox.Text = staffName;
+        }
+        //public GeneralForm(string staffID)
+        //{
+        //    this.staffIdTextbox.Text = staffID;
+        //    //AdminForm gn = new AdminForm(staffID);
+        //    //gn.ShowDialog();
+        //}
         #region Form Load
         private void GeneralForm_Load(object sender, EventArgs e)
         {
@@ -62,12 +71,10 @@ namespace MasterFileProject
         #region Display Data
         private void DisplayData(ListBox listbox)
         {
-            //readOnlyListbox.Items.Clear();
             listbox.Items.Clear();
             foreach (var staff in MasterFile)
             {
                 listbox.Items.Add(staff.Key + "\t" + staff.Value);
-                //readOnlyListbox.Items.Add(staff.Key + "\t" + staff.Value);
             }
         }
         #endregion
@@ -101,6 +108,9 @@ namespace MasterFileProject
                 if (staff.Key.ToString().Contains(staffIdTextbox.Text))
                 {
                     filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
+                }else if (staff.Key.ToString().StartsWith("77") && string.IsNullOrEmpty(staffNameTextbox.Text))
+                {
+                    SendInfoToAdminForm();
                 }
             }
         }
@@ -114,23 +124,25 @@ namespace MasterFileProject
         // 4.6.	Create a method for the Staff Name textbox which will clear the contents
         // and place the focus into the Staff Name textbox. Utilise a keyboard shortcut.
         // 4.7.	Create a method for the Staff ID textbox which will clear the contents and place the focus into the textbox. Utilise a keyboard shortcut.
+        // 4.9 Create modified logic to open the Admin Form to Create a new user when the Staff ID 77
+        // and the Staff Name is empty. Read the appropriate criteria in the Admin Form for further information.
         #region General Form 
         private void GeneralForm_KeyDown(object sender, KeyEventArgs e)
         {
             // Keyboard shortcut for Staff Name Textbox.
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.D)
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.D)
             {
                 staffNameTextbox.Clear();
                 staffNameTextbox.Focus();
             }
             // Keyboard shortcut for Staff ID Textbox.
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.R)
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.R)
             {
                 staffIdTextbox.Clear();
                 staffIdTextbox.Focus();
             }
             // Close General Form.
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.Q)
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.Q)
             {
                 this.Close();
             }
@@ -138,7 +150,7 @@ namespace MasterFileProject
             // Ensure the General Form sends the currently selected Staff ID and Staff Name to the Admin Form for Update and Delete purposes and is opened as modal.
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.A)
             {
-                sendInfoToAdminForm();
+                SendInfoToAdminForm();
             }
         }
         #endregion
@@ -155,14 +167,27 @@ namespace MasterFileProject
                 staffIdTextbox.Text = MasterFile.ElementAt(indx).Key.ToString();
             }
         }
-        private void sendInfoToAdminForm()
-        { 
-            textboxId = staffIdTextbox.Text;
-            textboxName = staffNameTextbox.Text;
-            AdminForm adminForm = new AdminForm();
-            adminForm.ShowDialog();
+        // 4.9 Create modified logic to open the Admin Form to Create a new user when the Staff ID 77
+        // and the Staff Name is empty. Read the appropriate criteria in the Admin Form for further information.
+        private void SendInfoToAdminForm()
+        {
+            if (!string.IsNullOrEmpty(staffIdTextbox.Text) && !string.IsNullOrEmpty(staffNameTextbox.Text))
+            {
+                AdminForm adminForm = new AdminForm(staffIdTextbox.Text, staffNameTextbox.Text);
+                adminForm.ShowDialog();
+            }
+            else if (staffIdTextbox.Text.StartsWith("77") && string.IsNullOrEmpty(staffNameTextbox.Text))
+            {
+                AdminForm adminForm = new AdminForm("770000000");
+                adminForm.ShowDialog();
+            }
         }
         #endregion
+        private void CreateUser()
+        {
+            AdminForm adminform = new AdminForm();
+
+        }
     }
 }
 

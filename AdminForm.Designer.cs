@@ -39,15 +39,16 @@
             // 
             this.adminFormStaffIIdTextbox.Location = new System.Drawing.Point(25, 52);
             this.adminFormStaffIIdTextbox.Name = "adminFormStaffIIdTextbox";
+            this.adminFormStaffIIdTextbox.ReadOnly = true;
             this.adminFormStaffIIdTextbox.Size = new System.Drawing.Size(277, 22);
-            this.adminFormStaffIIdTextbox.TabIndex = 0;
+            this.adminFormStaffIIdTextbox.TabIndex = 1;
             // 
             // adminFormStaffNameTextbox
             // 
             this.adminFormStaffNameTextbox.Location = new System.Drawing.Point(25, 111);
             this.adminFormStaffNameTextbox.Name = "adminFormStaffNameTextbox";
             this.adminFormStaffNameTextbox.Size = new System.Drawing.Size(277, 22);
-            this.adminFormStaffNameTextbox.TabIndex = 1;
+            this.adminFormStaffNameTextbox.TabIndex = 0;
             // 
             // label1
             // 
@@ -77,7 +78,7 @@
             this.helplistTextbox.Name = "helplistTextbox";
             this.helplistTextbox.ReadOnly = true;
             this.helplistTextbox.Size = new System.Drawing.Size(276, 155);
-            this.helplistTextbox.TabIndex = 7;
+            this.helplistTextbox.TabIndex = 2;
             this.helplistTextbox.Text = "Create\r\n\r\nUpdate \r\n\r\nDelete";
             // 
             // AdminForm
@@ -85,14 +86,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 240);
+            this.ControlBox = false;
             this.Controls.Add(this.helplistTextbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.adminFormStaffNameTextbox);
             this.Controls.Add(this.adminFormStaffIIdTextbox);
+            this.KeyPreview = true;
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.AdminForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AdminForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
