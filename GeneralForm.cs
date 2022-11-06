@@ -86,7 +86,7 @@ namespace MasterFileProject
 
             foreach (var staff in MasterFile)
             {
-                if (staff.Value.Contains(staffNameTextbox.Text))
+                if (!string.IsNullOrEmpty(staffNameTextbox.Text) && staff.Value.Contains(staffNameTextbox.Text))
                 {
                     filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
                 }
@@ -105,10 +105,12 @@ namespace MasterFileProject
         {
             foreach (var staff in MasterFile)
             {
-                if (staff.Key.ToString().Contains(staffIdTextbox.Text))
+                if (staff.Key.ToString().Contains(staffIdTextbox.Text) && string.IsNullOrEmpty(staffNameTextbox.Text))
                 {
                     filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
-                }else if (staff.Key.ToString().StartsWith("77") && string.IsNullOrEmpty(staffNameTextbox.Text))
+                   // staffNameTextbox.TabStop = false;
+                }
+                else if (staff.Key.ToString().StartsWith("77") && string.IsNullOrEmpty(staffNameTextbox.Text))
                 {
                     SendInfoToAdminForm();
                 }
@@ -129,22 +131,15 @@ namespace MasterFileProject
         #region General Form 
         private void GeneralForm_KeyDown(object sender, KeyEventArgs e)
         {
-            // Keyboard shortcut for Staff Name Textbox.
-            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.D)
-            {
-                staffNameTextbox.Clear();
-                staffNameTextbox.Focus();
-            }
             // Keyboard shortcut for Staff ID Textbox.
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.R)
             {
-                staffIdTextbox.Clear();
-                staffIdTextbox.Focus();
+                ClearTextbox(staffIdTextbox);
             }
-            // Close General Form.
-            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.Q)
+            // Keyboard shortcut for Staff Name Textbox.
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.D)
             {
-                this.Close();
+                ClearTextbox(staffNameTextbox);
             }
             // 4.9.	Create a method that will open the Admin Form when the Alt + A keys are pressed. 
             // Ensure the General Form sends the currently selected Staff ID and Staff Name to the Admin Form for Update and Delete purposes and is opened as modal.
@@ -152,8 +147,15 @@ namespace MasterFileProject
             {
                 SendInfoToAdminForm();
             }
+            // Close General Form.
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.Q)
+            {
+                this.Close();
+            }
         }
         #endregion
+        // 4.9 Create modified logic to open the Admin Form to Create a new user when the Staff ID 77
+        // and the Staff Name is empty. Read the appropriate criteria in the Admin Form for further information.
         #region Filtered Listbox Methods
         // If user selects a staff from listbox and presses enter, the results are displayed 
         // in the Staff ID textbox and the Staff Name textbox.
@@ -163,8 +165,8 @@ namespace MasterFileProject
             {
                 string curItem = filteredListbox.SelectedItem.ToString();
                 int indx = readOnlyListbox.FindString(curItem);
-                staffNameTextbox.Text = MasterFile.ElementAt(indx).Value;
                 staffIdTextbox.Text = MasterFile.ElementAt(indx).Key.ToString();
+                staffNameTextbox.Text = MasterFile.ElementAt(indx).Value;
             }
         }
         // 4.9 Create modified logic to open the Admin Form to Create a new user when the Staff ID 77
@@ -183,6 +185,11 @@ namespace MasterFileProject
             }
         }
         #endregion
+        private void ClearTextbox(TextBox textbox)
+        {
+            textbox.Clear();
+            textbox.Focus();
+        }
         private void CreateUser()
         {
             AdminForm adminform = new AdminForm();
