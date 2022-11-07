@@ -20,21 +20,9 @@ namespace MasterFileProject
         }
         // 4.1.	Create a Dictionary data structure with a TKey of type integer
         // and a TValue of type string, name the new structure “MasterFile”.
-        static Dictionary<int, string> MasterFile = new Dictionary<int, string>();
+        public static Dictionary<int, string> MasterFile = new Dictionary<int, string>();
         // 4.2.	Create a method that will read the data from the .csv file
         // into the Dictionary data structure when the form loads.
-        public GeneralForm(string staffID, string staffName)
-        {
-            this.staffIdTextbox.Text = staffID;
-            this.staffNameTextbox.Text = staffName;
-
-        }
-        //public GeneralForm(string staffID)
-        //{
-        //    this.staffIdTextbox.Text = staffID;
-        //    //AdminForm gn = new AdminForm(staffID);
-        //    //gn.ShowDialog();
-        //}
         #region Form Load
         private void GeneralForm_Load(object sender, EventArgs e)
         {
@@ -84,7 +72,6 @@ namespace MasterFileProject
         #region Filter by Name
         private void FilterStaffName()
         {
-
             foreach (var staff in MasterFile)
             {
                 if (!string.IsNullOrEmpty(staffNameTextbox.Text) && staff.Value.Contains(staffNameTextbox.Text))
@@ -111,13 +98,8 @@ namespace MasterFileProject
                     filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
                     // staffNameTextbox.TabStop = false;
                 }
-                else if (staff.Key.ToString().StartsWith("77") && string.IsNullOrEmpty(staffNameTextbox.Text))
-                {
-                    SendInfoToAdminForm();
-                }
             }
         }
-
         private void staffIdTextbox_KeyUp(object sender, KeyEventArgs e)
         {
             filteredListbox.Items.Clear();
@@ -143,10 +125,32 @@ namespace MasterFileProject
                 ClearTextbox(staffNameTextbox);
             }
             // 4.9.	Create a method that will open the Admin Form when the Alt + A keys are pressed. 
-            // Ensure the General Form sends the currently selected Staff ID and Staff Name to the Admin Form for Update and Delete purposes and is opened as modal.
+            // Ensure the General Form sends the currently selected Staff ID and Staff Name to the Admin Form
+            // for Update and Delete purposes and is opened as modal.
+            // Create modified logic to open the Admin Form to Create a new user when the Staff ID 77
+            // and the Staff Name is empty. Read the appropriate criteria in the Admin Form for further information.
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.A)
             {
-                SendInfoToAdminForm();
+                // This is for edit and delete.
+                if (!string.IsNullOrEmpty(staffIdTextbox.Text) && !string.IsNullOrEmpty(staffNameTextbox.Text))
+                {
+                    AdminForm adminForm = new AdminForm(staffIdTextbox.Text, staffNameTextbox.Text);
+                    adminForm.ShowDialog();
+                }
+                // This is for create method.
+                else if (!string.IsNullOrEmpty(staffIdTextbox.Text) && string.IsNullOrEmpty(staffNameTextbox.Text))
+                {
+                    if (ValidID(staffIdTextbox.Text))
+                    {
+                        AdminForm adminFrom = new AdminForm(staffIdTextbox.Text);
+                        adminFrom.ShowDialog();
+                    }
+                    else
+                    {
+                        AdminForm adminFrom = new AdminForm(GenerateID());
+                        adminFrom.ShowDialog();
+                    }
+                }
             }
             // Close General Form.
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.Q)
@@ -155,6 +159,17 @@ namespace MasterFileProject
             }
         }
         #endregion
+        // 5.3.	Create a method that will create a new Staff ID and input the staff name from the related text box.
+        // The Staff ID must be unique starting with 77xxxxxxx while the staff name may be duplicated. The new staff
+        // member must be added to the Dictionary data structure.
+        private string GenerateID()
+        {
+            Random random = new Random();
+            int digits = random.Next(9999999);
+            string ukDigit = "77";
+            string phoneNumber = string.Concat(ukDigit, digits);
+            return phoneNumber;
+        }
         // 4.9 Create modified logic to open the Admin Form to Create a new user when the Staff ID 77
         // and the Staff Name is empty. Read the appropriate criteria in the Admin Form for further information.
         #region Filtered Listbox Methods
@@ -165,53 +180,37 @@ namespace MasterFileProject
             if (e.KeyCode == Keys.Enter)
             {
                 string curItem = filteredListbox.SelectedItem.ToString();
-                int indx = readOnlyListbox.FindString(curItem);
-                staffIdTextbox.Text = MasterFile.ElementAt(indx).Key.ToString();
-                staffNameTextbox.Text = MasterFile.ElementAt(indx).Value;
-            }
-        }
-        // 4.9 Create modified logic to open the Admin Form to Create a new user when the Staff ID 77
-        // and the Staff Name is empty. Read the appropriate criteria in the Admin Form for further information.
-        private void SendInfoToAdminForm()
-        {
-            if (!string.IsNullOrEmpty(staffIdTextbox.Text) && !string.IsNullOrEmpty(staffNameTextbox.Text))
-            {
-                AdminForm adminForm = new AdminForm(staffIdTextbox.Text, staffNameTextbox.Text);
-                adminForm.ShowDialog();
-            }
-            else if (staffIdTextbox.Text.StartsWith("77") && string.IsNullOrEmpty(staffNameTextbox.Text))
-            {
-                CreateUser(staffIdTextbox.Text);
-                // Method will send the ID to Admin Form. 
-                // Admin form has to send the data back to general form and add the staffName + ID to dictionary. 
+                var staffArray = curItem.Split('\t');
+                staffIdTextbox.Text = staffArray[0];    
+                staffNameTextbox.Text = staffArray[1];
             }
         }
         #endregion
+        #region Utility Methods
         private void ClearTextbox(TextBox textbox)
         {
             textbox.Clear();
             textbox.Focus();
         }
-        // 5.3.	Create a method that will create a new Staff ID and input the staff name from the related text box.
-        // The Staff ID must be unique starting with 77xxxxxxx while the staff name may be duplicated. The new staff
-        // member must be added to the Dictionary data structure.
-        private string CreateUser(string generateID)
+        #endregion
+        #region Check duplicates
+        private bool ValidID(string checkThisID)
         {
-            Random random = new Random();
-            int digits = random.Next(99999999);
-            string ukDigit = "77";
-            string phoneNumber = string.Concat(ukDigit, digits);
-            staffIdTextbox.Text = phoneNumber;
-            AdminForm adminForm = new AdminForm(phoneNumber);
-            adminForm.ShowDialog();
-            return phoneNumber;
-
-            //string newName = staffNameTextbox.Text;
-            //AdminForm adminform = new AdminForm(phoneNumber, newName);
-            //// when user creates a new staff name, ask for confirmation before creating file.
-            //// needs if/else statment to handle empty name textbox. 
-
+            foreach (var staff in MasterFile)
+            {
+                if (!staff.Key.ToString().Contains(checkThisID) && staffIdTextbox.Text.StartsWith("77"))
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Error! No duplicate ID numbers.");
+                    return false;
+                }
+            }
+            return true;
         }
+        #endregion
     }
 }
 

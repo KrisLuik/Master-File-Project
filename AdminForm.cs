@@ -32,7 +32,6 @@ namespace MasterFileProject
         {
             InitializeComponent();
             adminFormStaffIIdTextbox.Text = textboxID;
-            CreateNewStaff(adminFormStaffNameTextbox.Text);
         }
         public AdminForm(string textboxID, string textboxName)
         {
@@ -45,29 +44,21 @@ namespace MasterFileProject
 
         private void AdminForm_KeyDown(object sender, KeyEventArgs e)
         {
-            // Keyboard shortcut for Staff Name Textbox.
-            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.I)
+            // Keyboard shortcut for Creating new staff details.
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.C)
             {
-                string newStaffNumber = adminFormStaffIIdTextbox.Text;
-                string newStaffName = CreateNewStaff(adminFormStaffNameTextbox.Text);
-                GeneralForm generalForm = new GeneralForm(newStaffNumber, newStaffName);
-                generalForm.ShowDialog();
-                // General Form has to add the new user to dictionary. 
-                // Staff Name can be duplicated, but ID cannot. 
+                GeneralForm.MasterFile.Add(int.Parse(adminFormStaffIIdTextbox.Text), adminFormStaffNameTextbox.Text);
+                MessageBox.Show("User added");
+            }
+            else if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.D)
+            {
+                GeneralForm.MasterFile.Remove(int.Parse(adminFormStaffIIdTextbox.Text));
 
             }
-            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.Q)
+            else if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.Q)
             {
                 this.Close();
             }
-        }
-        private string CreateNewStaff(string newName)
-        {
-            if(!string.IsNullOrEmpty(adminFormStaffIIdTextbox.Text))
-            {
-                newName = adminFormStaffNameTextbox.Text; 
-            }
-            return newName;
         }
     }
 }
