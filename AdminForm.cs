@@ -48,12 +48,22 @@ namespace MasterFileProject
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.C)
             {
                 GeneralForm.MasterFile.Add(int.Parse(adminFormStaffIIdTextbox.Text), adminFormStaffNameTextbox.Text);
-                MessageBox.Show("User added");
+                MessageBox.Show("Staff Added");
             }
+            // Keyboard shortcut for Deleting new staff details.
             else if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.D)
             {
                 GeneralForm.MasterFile.Remove(int.Parse(adminFormStaffIIdTextbox.Text));
-
+                adminFormStaffIIdTextbox.Clear();
+                adminFormStaffNameTextbox.Clear();
+                MessageBox.Show("Staff Details Deleted.");
+            }
+            // Keyboard shortcut for Editing staff details.
+            else if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.E)
+            {
+                GeneralForm.MasterFile.Remove(int.Parse(adminFormStaffIIdTextbox.Text));
+                GeneralForm.MasterFile.Add(int.Parse(adminFormStaffIIdTextbox.Text), adminFormStaffNameTextbox.Text);
+                MessageBox.Show("Staff Details Updated.");
             }
             else if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.Q)
             {
