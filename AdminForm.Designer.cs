@@ -37,55 +37,54 @@
             // 
             // adminFormStaffIIdTextbox
             // 
-            this.adminFormStaffIIdTextbox.Location = new System.Drawing.Point(25, 52);
+            this.adminFormStaffIIdTextbox.Location = new System.Drawing.Point(19, 42);
+            this.adminFormStaffIIdTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.adminFormStaffIIdTextbox.Name = "adminFormStaffIIdTextbox";
             this.adminFormStaffIIdTextbox.ReadOnly = true;
-            this.adminFormStaffIIdTextbox.Size = new System.Drawing.Size(277, 22);
+            this.adminFormStaffIIdTextbox.Size = new System.Drawing.Size(209, 20);
             this.adminFormStaffIIdTextbox.TabIndex = 1;
             // 
             // adminFormStaffNameTextbox
             // 
-            this.adminFormStaffNameTextbox.Location = new System.Drawing.Point(25, 111);
+            this.adminFormStaffNameTextbox.Location = new System.Drawing.Point(19, 90);
+            this.adminFormStaffNameTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.adminFormStaffNameTextbox.Name = "adminFormStaffNameTextbox";
-            this.adminFormStaffNameTextbox.Size = new System.Drawing.Size(277, 22);
+            this.adminFormStaffNameTextbox.Size = new System.Drawing.Size(209, 20);
             this.adminFormStaffNameTextbox.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 33);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(19, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Staff ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 92);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(18, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Staff Name";
             // 
             // helplistTextbox
             // 
-            this.helplistTextbox.Location = new System.Drawing.Point(339, 33);
-            this.helplistTextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.helplistTextbox.Location = new System.Drawing.Point(254, 27);
             this.helplistTextbox.Multiline = true;
             this.helplistTextbox.Name = "helplistTextbox";
             this.helplistTextbox.ReadOnly = true;
-            this.helplistTextbox.Size = new System.Drawing.Size(276, 155);
+            this.helplistTextbox.Size = new System.Drawing.Size(208, 127);
             this.helplistTextbox.TabIndex = 2;
-            this.helplistTextbox.Text = "Create\r\n\r\nUpdate \r\n\r\nDelete";
+            this.helplistTextbox.Text = "Create ( Alt + I )\r\n\r\nUpdate \r\n\r\nDelete";
             // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 240);
+            this.ClientSize = new System.Drawing.Size(490, 195);
             this.ControlBox = false;
             this.Controls.Add(this.helplistTextbox);
             this.Controls.Add(this.label2);
@@ -93,6 +92,7 @@
             this.Controls.Add(this.adminFormStaffNameTextbox);
             this.Controls.Add(this.adminFormStaffIIdTextbox);
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.AdminForm_Load);

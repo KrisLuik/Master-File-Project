@@ -27,6 +27,7 @@ namespace MasterFileProject
         {
             this.staffIdTextbox.Text = staffID;
             this.staffNameTextbox.Text = staffName;
+
         }
         //public GeneralForm(string staffID)
         //{
@@ -108,7 +109,7 @@ namespace MasterFileProject
                 if (staff.Key.ToString().Contains(staffIdTextbox.Text) && string.IsNullOrEmpty(staffNameTextbox.Text))
                 {
                     filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
-                   // staffNameTextbox.TabStop = false;
+                    // staffNameTextbox.TabStop = false;
                 }
                 else if (staff.Key.ToString().StartsWith("77") && string.IsNullOrEmpty(staffNameTextbox.Text))
                 {
@@ -180,8 +181,9 @@ namespace MasterFileProject
             }
             else if (staffIdTextbox.Text.StartsWith("77") && string.IsNullOrEmpty(staffNameTextbox.Text))
             {
-                AdminForm adminForm = new AdminForm("770000000");
-                adminForm.ShowDialog();
+                CreateUser(staffIdTextbox.Text);
+                // Method will send the ID to Admin Form. 
+                // Admin form has to send the data back to general form and add the staffName + ID to dictionary. 
             }
         }
         #endregion
@@ -190,9 +192,24 @@ namespace MasterFileProject
             textbox.Clear();
             textbox.Focus();
         }
-        private void CreateUser()
+        // 5.3.	Create a method that will create a new Staff ID and input the staff name from the related text box.
+        // The Staff ID must be unique starting with 77xxxxxxx while the staff name may be duplicated. The new staff
+        // member must be added to the Dictionary data structure.
+        private string CreateUser(string generateID)
         {
-            AdminForm adminform = new AdminForm();
+            Random random = new Random();
+            int digits = random.Next(99999999);
+            string ukDigit = "77";
+            string phoneNumber = string.Concat(ukDigit, digits);
+            staffIdTextbox.Text = phoneNumber;
+            AdminForm adminForm = new AdminForm(phoneNumber);
+            adminForm.ShowDialog();
+            return phoneNumber;
+
+            //string newName = staffNameTextbox.Text;
+            //AdminForm adminform = new AdminForm(phoneNumber, newName);
+            //// when user creates a new staff name, ask for confirmation before creating file.
+            //// needs if/else statment to handle empty name textbox. 
 
         }
     }
