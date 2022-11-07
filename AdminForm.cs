@@ -32,6 +32,7 @@ namespace MasterFileProject
         {
             InitializeComponent();
             adminFormStaffIIdTextbox.Text = textboxID;
+            CreateNewStaff(adminFormStaffNameTextbox.Text);
         }
         public AdminForm(string textboxID, string textboxName)
         {
@@ -44,10 +45,29 @@ namespace MasterFileProject
 
         private void AdminForm_KeyDown(object sender, KeyEventArgs e)
         {
+            // Keyboard shortcut for Staff Name Textbox.
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.I)
+            {
+                string newStaffNumber = adminFormStaffIIdTextbox.Text;
+                string newStaffName = CreateNewStaff(adminFormStaffNameTextbox.Text);
+                GeneralForm generalForm = new GeneralForm(newStaffNumber, newStaffName);
+                generalForm.ShowDialog();
+                // General Form has to add the new user to dictionary. 
+                // Staff Name can be duplicated, but ID cannot. 
+
+            }
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.Q)
             {
                 this.Close();
             }
+        }
+        private string CreateNewStaff(string newName)
+        {
+            if(!string.IsNullOrEmpty(adminFormStaffIIdTextbox.Text))
+            {
+                newName = adminFormStaffNameTextbox.Text; 
+            }
+            return newName;
         }
     }
 }
