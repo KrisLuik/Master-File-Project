@@ -138,6 +138,9 @@ namespace MasterFileProject
                     adminForm.ShowDialog();
                 }
                 // This is for create method.
+                // 5.3.	Create a method that will create a new Staff ID and input the staff name from the related text box.
+                // The Staff ID must be unique starting with 77xxxxxxx while the staff name may be duplicated. The new staff
+                // member must be added to the Dictionary data structure.
                 else if (!string.IsNullOrEmpty(staffIdTextbox.Text) && string.IsNullOrEmpty(staffNameTextbox.Text))
                 {
                     if (ValidID(staffIdTextbox.Text))

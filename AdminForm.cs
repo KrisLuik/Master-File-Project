@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,15 +60,29 @@ namespace MasterFileProject
                 MessageBox.Show("Staff Details Deleted.");
             }
             // Keyboard shortcut for Editing staff details.
+            // 5.1.	Create a method that will Update the name of the current Staff ID.
             else if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.E)
             {
                 GeneralForm.MasterFile.Remove(int.Parse(adminFormStaffIIdTextbox.Text));
                 GeneralForm.MasterFile.Add(int.Parse(adminFormStaffIIdTextbox.Text), adminFormStaffNameTextbox.Text);
                 MessageBox.Show("Staff Details Updated.");
             }
-            else if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.Q)
+            // 5.7.	Create a method that will close the Admin Form when the Alt + L keys are pressed.
+            else if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.L)
             {
                 this.Close();
+            }
+        }
+        // 5.6.	Create a method that will save changes to the csv file, this method should be called before the Admin Form closes.
+        private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Write each directory name to a file.
+            using (StreamWriter sw = new StreamWriter(@"MalinStaffNamesV2.csv"))
+            {
+                foreach (var kvp in GeneralForm.MasterFile)
+                {
+                    sw.WriteLine(kvp.Key + "," + kvp.Value);
+                }
             }
         }
     }
