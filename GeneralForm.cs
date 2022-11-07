@@ -162,6 +162,7 @@ namespace MasterFileProject
         // 5.3.	Create a method that will create a new Staff ID and input the staff name from the related text box.
         // The Staff ID must be unique starting with 77xxxxxxx while the staff name may be duplicated. The new staff
         // member must be added to the Dictionary data structure.
+        #region Generate Random ID
         private string GenerateID()
         {
             Random random = new Random();
@@ -170,9 +171,10 @@ namespace MasterFileProject
             string phoneNumber = string.Concat(ukDigit, digits);
             return phoneNumber;
         }
+        #endregion
         // 4.9 Create modified logic to open the Admin Form to Create a new user when the Staff ID 77
         // and the Staff Name is empty. Read the appropriate criteria in the Admin Form for further information.
-        #region Filtered Listbox Methods
+        #region Filtered Listbox Method
         // If user selects a staff from listbox and presses enter, the results are displayed 
         // in the Staff ID textbox and the Staff Name textbox.
         private void filteredListbox_KeyDown(object sender, KeyEventArgs e)
@@ -204,7 +206,6 @@ namespace MasterFileProject
                 }
                 else
                 {
-                    MessageBox.Show("Error! No duplicate ID numbers.");
                     return false;
                 }
             }
