@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace MasterFileProject
 {
@@ -73,11 +75,18 @@ namespace MasterFileProject
         #region Filter by Name
         private void FilterStaffName()
         {
-            foreach (var staff in MasterFile)
+            // Input handling for Name Textbox. Only allow letters and change the first character to upper
+            // and the rest to lower.
+            string before = staffNameTextbox.Text;
+            if (!string.IsNullOrEmpty(before))
             {
-                if (!string.IsNullOrEmpty(staffNameTextbox.Text) && staff.Value.Contains(staffNameTextbox.Text))
+                string after = char.ToUpper(before.First()) + before.Substring(1).ToLower();
+                foreach (var staff in MasterFile)
                 {
-                    filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
+                    if (!string.IsNullOrEmpty(staffNameTextbox.Text) && staff.Value.Contains(after))
+                    {
+                        filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
+                    }
                 }
             }
         }
@@ -200,11 +209,40 @@ namespace MasterFileProject
             }
         }
         #endregion
-        #region Utility Method
+        #region Textbox Input Handling and Utility Method
         private void ClearTextbox(TextBox textbox)
         {
             textbox.Clear();
             textbox.Focus();
+        }
+        // Input Handling for Staff ID Textbox.
+        private void staffIdTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Input only accepts keyboard functions and numbers.
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                // Everything that is not a number, nor a backspace nor a space will be blocked.
+                e.Handled = true;
+            }
+        }
+        // Input handling for Staff Name TextBox.
+        private void staffNameTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Input only accepts keyboard functions and letters.
+            if (char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
+            {
+                // These characters may pass.
+                e.Handled = false;
+            }
+            else
+            {
+                // Everything that is not a letter, nor a backspace nor a space will be blocked.
+                e.Handled = true;
+            }
         }
         #endregion
         #region Check duplicates
