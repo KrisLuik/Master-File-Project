@@ -108,9 +108,11 @@ namespace MasterFileProject
             }
         }
         #endregion
+        #region Admin Form Load
         private void AdminForm_Load(object sender, EventArgs e)
         {
             adminFormStatusMessage.Text = "Refer to helplist on the right to navigate this form.";
         }
+        #endregion
     }
 }
