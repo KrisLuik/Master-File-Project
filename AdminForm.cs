@@ -28,12 +28,13 @@ namespace MasterFileProject
         }
         // 4.9 Create modified logic to open the Admin Form to Create a new user when the Staff ID 77
         // and the Staff Name is empty. Read the appropriate criteria in the Admin Form for further information.
-        // 5.2.	Create a method that will receive the Staff ID from the general form and then populate textboxes with the related data. 
+       
         public AdminForm(string textboxID)
         {
             InitializeComponent();
             adminFormStaffIIdTextbox.Text = textboxID;
         }
+        // 5.2.	Create a method that will receive the Staff ID from the general form and then populate textboxes with the related data. 
         public AdminForm(string textboxID, string textboxName)
         {
             InitializeComponent();
@@ -51,7 +52,7 @@ namespace MasterFileProject
                 GeneralForm.MasterFile.Add(int.Parse(adminFormStaffIIdTextbox.Text), adminFormStaffNameTextbox.Text);
                 MessageBox.Show("Staff Added");
             }
-            // Keyboard shortcut for Deleting new staff details.
+            // 5.4 Create a method that will Remove the current Staff ID and clear the text boxes.
             else if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.D)
             {
                 GeneralForm.MasterFile.Remove(int.Parse(adminFormStaffIIdTextbox.Text));
@@ -74,6 +75,8 @@ namespace MasterFileProject
             }
         }
         // 5.6.	Create a method that will save changes to the csv file, this method should be called before the Admin Form closes.
+        // 5.8.	Add suitable error trapping and user feedback to ensure a fully functional User Experience.
+        // Make all methods private and ensure the Dictionary is updated. 
         private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Write each directory name to a file.

@@ -117,4 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="helplistTextbox.Text" xml:space="preserve">
+    <value>Clear Staff ID (Alt + R)
+
+Clear Staff Name (Alt + D)
+
+Exit General Form (Alt+ Q)
+
+Open Admin Form (Alt + A)
+
+Navigate Filtered Listbox using up/down arrow keys.
+
+Select Staff member by pressing enter.</value>
+  </data>
+  <metadata name="statusstripGeneralForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

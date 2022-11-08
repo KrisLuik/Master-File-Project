@@ -37,57 +37,55 @@
             // 
             // adminFormStaffIIdTextbox
             // 
-            this.adminFormStaffIIdTextbox.Location = new System.Drawing.Point(25, 52);
-            this.adminFormStaffIIdTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.adminFormStaffIIdTextbox.Location = new System.Drawing.Point(25, 47);
+            this.adminFormStaffIIdTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.adminFormStaffIIdTextbox.Name = "adminFormStaffIIdTextbox";
             this.adminFormStaffIIdTextbox.ReadOnly = true;
-            this.adminFormStaffIIdTextbox.Size = new System.Drawing.Size(277, 22);
+            this.adminFormStaffIIdTextbox.Size = new System.Drawing.Size(209, 20);
             this.adminFormStaffIIdTextbox.TabIndex = 1;
             // 
             // adminFormStaffNameTextbox
             // 
-            this.adminFormStaffNameTextbox.Location = new System.Drawing.Point(25, 111);
-            this.adminFormStaffNameTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.adminFormStaffNameTextbox.Location = new System.Drawing.Point(25, 90);
+            this.adminFormStaffNameTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.adminFormStaffNameTextbox.Name = "adminFormStaffNameTextbox";
-            this.adminFormStaffNameTextbox.Size = new System.Drawing.Size(277, 22);
+            this.adminFormStaffNameTextbox.Size = new System.Drawing.Size(209, 20);
             this.adminFormStaffNameTextbox.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 33);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(25, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Staff ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 92);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(24, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Staff Name";
             // 
             // helplistTextbox
             // 
-            this.helplistTextbox.Location = new System.Drawing.Point(339, 33);
-            this.helplistTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.helplistTextbox.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helplistTextbox.Location = new System.Drawing.Point(260, 29);
             this.helplistTextbox.Multiline = true;
             this.helplistTextbox.Name = "helplistTextbox";
             this.helplistTextbox.ReadOnly = true;
-            this.helplistTextbox.Size = new System.Drawing.Size(276, 155);
+            this.helplistTextbox.Size = new System.Drawing.Size(114, 105);
             this.helplistTextbox.TabIndex = 2;
-            this.helplistTextbox.Text = "Create ( Alt + I )\r\n\r\nUpdate \r\n\r\nDelete";
+            this.helplistTextbox.Text = "Create (Alt + C)\r\n\r\nUpdate (Alt + E)\r\n\r\nDelete (Alt + D)\r\n\r\nExit (Alt + L)\r\n";
             // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 240);
+            this.ClientSize = new System.Drawing.Size(399, 172);
             this.ControlBox = false;
             this.Controls.Add(this.helplistTextbox);
             this.Controls.Add(this.label2);
@@ -95,7 +93,7 @@
             this.Controls.Add(this.adminFormStaffNameTextbox);
             this.Controls.Add(this.adminFormStaffIIdTextbox);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminForm_FormClosing);
