@@ -57,6 +57,7 @@
             this.staffIdTextbox.Name = "staffIdTextbox";
             this.staffIdTextbox.Size = new System.Drawing.Size(209, 20);
             this.staffIdTextbox.TabIndex = 0;
+            this.staffIdTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.staffIdTextbox_KeyPress);
             this.staffIdTextbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.staffIdTextbox_KeyUp);
             // 
             // staffNameTextbox
@@ -67,6 +68,7 @@
             this.staffNameTextbox.Name = "staffNameTextbox";
             this.staffNameTextbox.Size = new System.Drawing.Size(209, 20);
             this.staffNameTextbox.TabIndex = 1;
+            this.staffNameTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.staffNameTextbox_KeyPress);
             this.staffNameTextbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.staffNameTextbox_KeyUp);
             // 
             // filteredListbox
@@ -117,9 +119,9 @@
             this.statusstripGeneralForm.TabIndex = 7;
             this.statusstripGeneralForm.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // generalFromStatusMessage
             // 
-            this.generalFromStatusMessage.Name = "toolStripStatusLabel1";
+            this.generalFromStatusMessage.Name = "generalFromStatusMessage";
             this.generalFromStatusMessage.Size = new System.Drawing.Size(0, 17);
             // 
             // GeneralForm
