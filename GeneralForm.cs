@@ -18,8 +18,7 @@ namespace MasterFileProject
         {
             InitializeComponent();
         }
-        // 4.1.	Create a Dictionary data structure with a TKey of type integer
-        // and a TValue of type string, name the new structure “MasterFile”.
+        // 4.1.	Create a Dictionary data structure with a TKey of type integer and a TValue of type string, name the new structure “MasterFile”.
         public static Dictionary<int, string> MasterFile = new Dictionary<int, string>();
         // 4.2.	Create a method that will read the data from the .csv file
         // into the Dictionary data structure when the form loads.
@@ -48,6 +47,7 @@ namespace MasterFileProject
                     }
                 }
                 DisplayData(readOnlyListbox);
+                generalFromStatusMessage.Text = "Upload completed.";
             }
             else
             {
@@ -60,6 +60,7 @@ namespace MasterFileProject
         #region Display Data
         private void DisplayData(ListBox listbox)
         {
+            generalFromStatusMessage.Text = "";
             listbox.Items.Clear();
             foreach (var staff in MasterFile)
             {
@@ -114,15 +115,18 @@ namespace MasterFileProject
         #region General Form 
         private void GeneralForm_KeyDown(object sender, KeyEventArgs e)
         {
+            generalFromStatusMessage.Text = "";
             // Keyboard shortcut for Staff ID Textbox.
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.R)
             {
                 ClearTextbox(staffIdTextbox);
+                generalFromStatusMessage.Text = "Staff ID textbox cleared.";
             }
             // Keyboard shortcut for Staff Name Textbox.
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.D)
             {
                 ClearTextbox(staffNameTextbox);
+                generalFromStatusMessage.Text = "Staff Name textbox cleared.";
             }
             // 4.9.	Create a method that will open the Admin Form when the Alt + A keys are pressed. 
             // Ensure the General Form sends the currently selected Staff ID and Staff Name to the Admin Form
@@ -147,11 +151,14 @@ namespace MasterFileProject
                     {
                         AdminForm adminFrom = new AdminForm(staffIdTextbox.Text);
                         adminFrom.ShowDialog();
+                        generalFromStatusMessage.Text = "No duplicates.";
+
                     }
                     else
                     {
                         AdminForm adminFrom = new AdminForm(GenerateID());
                         adminFrom.ShowDialog();
+                        generalFromStatusMessage.Text = "Generating new ID.";
                     }
                 }
             }
@@ -182,16 +189,18 @@ namespace MasterFileProject
         // in the Staff ID textbox and the Staff Name textbox.
         private void filteredListbox_KeyDown(object sender, KeyEventArgs e)
         {
+            generalFromStatusMessage.Text = "";
             if (e.KeyCode == Keys.Enter)
             {
                 string curItem = filteredListbox.SelectedItem.ToString();
                 var staffArray = curItem.Split('\t');
-                staffIdTextbox.Text = staffArray[0];    
+                staffIdTextbox.Text = staffArray[0];
                 staffNameTextbox.Text = staffArray[1];
+                generalFromStatusMessage.Text = "Staff member selected.";
             }
         }
         #endregion
-        #region Utility Methods
+        #region Utility Method
         private void ClearTextbox(TextBox textbox)
         {
             textbox.Clear();
