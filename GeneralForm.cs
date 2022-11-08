@@ -11,6 +11,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace MasterFileProject
 {
@@ -33,8 +34,9 @@ namespace MasterFileProject
         #region Read from cvs file
         private void ReadStaffDetailsFromFile()
         {
+            Stopwatch sw = new Stopwatch();
             var filePath = @"MalinStaffNamesV2.csv";
-
+            sw.Start();
             if (File.Exists(filePath))
             {
                 string[] staffData = File.ReadAllLines(filePath);
@@ -50,6 +52,8 @@ namespace MasterFileProject
                 }
                 DisplayData(readOnlyListbox);
                 generalFromStatusMessage.Text = "Upload completed.";
+                sw.Stop();
+                generalFromStatusMessage.Text = String.Format("{0:0.00} ms", sw.ElapsedMilliseconds);
             }
             else
             {
@@ -106,7 +110,6 @@ namespace MasterFileProject
                 if (staff.Key.ToString().Contains(staffIdTextbox.Text) && string.IsNullOrEmpty(staffNameTextbox.Text))
                 {
                     filteredListbox.Items.Add(staff.Key + "\t" + staff.Value);
-                    // staffNameTextbox.TabStop = false;
                 }
             }
         }

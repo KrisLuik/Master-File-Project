@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -81,15 +82,21 @@ namespace MasterFileProject
         #region Save changes, Form Closing Method
         private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Stopwatch swAdmin = new Stopwatch();
             adminFormStatusMessage.Text = "";
             // Write each directory name to a file.
-            using (StreamWriter sw = new StreamWriter(@"MalinStaffNamesV2.csv"))
+            swAdmin.Start();
             {
-                foreach (var kvp in GeneralForm.MasterFile)
+                using (StreamWriter sw = new StreamWriter(@"MalinStaffNamesV2.csv"))
                 {
-                    sw.WriteLine(kvp.Key + "," + kvp.Value);
+                    foreach (var kvp in GeneralForm.MasterFile)
+                    {
+                        sw.WriteLine(kvp.Key + "," + kvp.Value);
+                    }
                 }
             }
+            swAdmin.Stop();
+            Console.WriteLine(String.Format("{0:0.00} ms", swAdmin.ElapsedMilliseconds));
         }
         #endregion
         #region Staff Name Textbox Input Handling 
