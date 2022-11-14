@@ -84,6 +84,7 @@ namespace MasterFileProject
         private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Stopwatch swAdmin = new Stopwatch();
+            //var filePath = @"MalinStaffNamesV2.csv";
             adminFormStatusMessage.Text = "";
             // Write each directory name to a file.
             swAdmin.Start();
@@ -113,6 +114,7 @@ namespace MasterFileProject
             {
                 // Everything that is not a letter, nor a backspace nor a space will be blocked.
                 e.Handled = true;
+                adminFormStatusMessage.Text = "Textbox does not accept numbers.";
             }
         }
         #endregion
