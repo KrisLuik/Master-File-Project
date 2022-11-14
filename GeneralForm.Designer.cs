@@ -105,7 +105,7 @@
             this.helplistTextbox.Multiline = true;
             this.helplistTextbox.Name = "helplistTextbox";
             this.helplistTextbox.ReadOnly = true;
-            this.helplistTextbox.Size = new System.Drawing.Size(162, 190);
+            this.helplistTextbox.Size = new System.Drawing.Size(162, 229);
             this.helplistTextbox.TabIndex = 6;
             this.helplistTextbox.TabStop = false;
             this.helplistTextbox.Text = resources.GetString("helplistTextbox.Text");
@@ -130,6 +130,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 405);
+            this.ControlBox = false;
             this.Controls.Add(this.statusstripGeneralForm);
             this.Controls.Add(this.helplistTextbox);
             this.Controls.Add(this.label2);
@@ -139,6 +140,8 @@
             this.Controls.Add(this.staffIdTextbox);
             this.Controls.Add(this.readOnlyListbox);
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GeneralForm";
             this.Text = "Master File - General Form";
             this.Load += new System.EventHandler(this.GeneralForm_Load);

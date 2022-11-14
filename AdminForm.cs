@@ -83,11 +83,11 @@ namespace MasterFileProject
         #region Save changes, Form Closing Method
         private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Stopwatch swAdmin = new Stopwatch();
-            //var filePath = @"MalinStaffNamesV2.csv";
+            // Stopwatch swAdmin = new Stopwatch();
+            // var filePath = @"MalinStaffNamesV2.csv";
             adminFormStatusMessage.Text = "";
             // Write each directory name to a file.
-            swAdmin.Start();
+            // swAdmin.Start();
             {
                 using (StreamWriter sw = new StreamWriter(@"MalinStaffNamesV2.csv"))
                 {
@@ -97,8 +97,8 @@ namespace MasterFileProject
                     }
                 }
             }
-            swAdmin.Stop();
-            Console.WriteLine(String.Format("Writing data to file: " + "{0:0.00} ms", swAdmin.ElapsedMilliseconds));
+            // swAdmin.Stop();
+            // Console.WriteLine(String.Format("Writing data to file: " + "{0:0.00} ms", swAdmin.ElapsedMilliseconds));
         }
         #endregion
         #region Staff Name Textbox Input Handling 
