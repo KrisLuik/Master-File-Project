@@ -36,9 +36,9 @@ namespace MasterFileProject
         #region Read from cvs file
         private void ReadStaffDetailsFromFile()
         {
-            Stopwatch sw = new Stopwatch();
+            // Stopwatch sw = new Stopwatch();
             var filePath = @"MalinStaffNamesV2.csv";
-            sw.Start();
+            //sw.Start();
             //if (File.Exists(filePath))
             //{
             string[] staffData = File.ReadAllLines(filePath);
@@ -54,8 +54,8 @@ namespace MasterFileProject
             }
             DisplayData(readOnlyListbox);
             generalFromStatusMessage.Text = "Upload completed.";
-            sw.Stop();
-            generalFromStatusMessage.Text = String.Format("{0:0.00} ms", sw.ElapsedMilliseconds);
+            //  sw.Stop();
+            //   generalFromStatusMessage.Text = String.Format("{0:0.00} ms", sw.ElapsedMilliseconds);
             // }
             //else
             //{
@@ -154,6 +154,7 @@ namespace MasterFileProject
                 {
                     AdminForm adminForm = new AdminForm(staffIdTextbox.Text, staffNameTextbox.Text);
                     adminForm.ShowDialog();
+                    DisplayData(filteredListbox);
                 }
                 // This is for create method.
                 // 5.3.	Create a method that will create a new Staff ID and input the staff name from the related text box.
