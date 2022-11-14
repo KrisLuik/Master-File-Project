@@ -39,28 +39,28 @@ namespace MasterFileProject
             Stopwatch sw = new Stopwatch();
             var filePath = @"MalinStaffNamesV2.csv";
             sw.Start();
-            if (File.Exists(filePath))
+            //if (File.Exists(filePath))
+            //{
+            string[] staffData = File.ReadAllLines(filePath);
+            foreach (var staff in staffData)
             {
-                string[] staffData = File.ReadAllLines(filePath);
-                foreach (var staff in staffData)
+                var splitData = staff.Split(',');
+                if (splitData.Length > 0)
                 {
-                    var splitData = staff.Split(',');
-                    if (splitData.Length > 0)
-                    {
-                        var staffID = splitData[0];
-                        var staffName = splitData[1];
-                        MasterFile.Add(int.Parse(staffID), staffName);
-                    }
+                    var staffID = splitData[0];
+                    var staffName = splitData[1];
+                    MasterFile.Add(int.Parse(staffID), staffName);
                 }
-                DisplayData(readOnlyListbox);
-                generalFromStatusMessage.Text = "Upload completed.";
-                sw.Stop();
-                generalFromStatusMessage.Text = String.Format("{0:0.00} ms", sw.ElapsedMilliseconds);
             }
-            else
-            {
-                MessageBox.Show("File did not load.");
-            }
+            DisplayData(readOnlyListbox);
+            generalFromStatusMessage.Text = "Upload completed.";
+            sw.Stop();
+            generalFromStatusMessage.Text = String.Format("{0:0.00} ms", sw.ElapsedMilliseconds);
+            // }
+            //else
+            //{
+            //    MessageBox.Show("File did not load.");
+            //}
         }
         #endregion
         // 4.3.	Create a method to display the Dictionary data into a non-selectable display only listbox (ie read only).
@@ -237,6 +237,7 @@ namespace MasterFileProject
             {
                 // Everything that is not a number, nor a backspace nor a space will be blocked.
                 e.Handled = true;
+                generalFromStatusMessage.Text = "This textbox accepts numbers only.";
             }
         }
         // Input handling for Staff Name TextBox.
@@ -252,6 +253,7 @@ namespace MasterFileProject
             {
                 // Everything that is not a letter, nor a backspace nor a space will be blocked.
                 e.Handled = true;
+                generalFromStatusMessage.Text = "This textbox accepts letters only.";
             }
         }
         #endregion
