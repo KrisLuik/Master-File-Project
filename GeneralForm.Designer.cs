@@ -77,7 +77,7 @@
             this.filteredListbox.Location = new System.Drawing.Point(239, 102);
             this.filteredListbox.Name = "filteredListbox";
             this.filteredListbox.Size = new System.Drawing.Size(209, 277);
-            this.filteredListbox.TabIndex = 4;
+            this.filteredListbox.TabIndex = 2;
             this.filteredListbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.filteredListbox_KeyDown);
             // 
             // label1
@@ -107,6 +107,7 @@
             this.helplistTextbox.ReadOnly = true;
             this.helplistTextbox.Size = new System.Drawing.Size(162, 190);
             this.helplistTextbox.TabIndex = 6;
+            this.helplistTextbox.TabStop = false;
             this.helplistTextbox.Text = resources.GetString("helplistTextbox.Text");
             // 
             // statusstripGeneralForm

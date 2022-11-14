@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MasterFileProject
 {
@@ -96,7 +97,7 @@ namespace MasterFileProject
                 }
             }
             swAdmin.Stop();
-            Console.WriteLine(String.Format("{0:0.00} ms", swAdmin.ElapsedMilliseconds));
+            Console.WriteLine(String.Format("Writing data to file: " + "{0:0.00} ms", swAdmin.ElapsedMilliseconds));
         }
         #endregion
         #region Staff Name Textbox Input Handling 

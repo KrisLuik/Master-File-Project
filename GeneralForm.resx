@@ -124,11 +124,11 @@ Clear Staff Name (Alt + D)
 
 Exit General Form (Alt+ Q)
 
-Open Admin Form (Alt + A)
-
 Navigate Filtered Listbox using up/down arrow keys.
 
-Select Staff member by pressing enter.</value>
+Select Staff member by pressing enter.
+
+Open Admin Form (Alt + A)</value>
   </data>
   <metadata name="statusstripGeneralForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
