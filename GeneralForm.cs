@@ -12,6 +12,7 @@ using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Diagnostics;
+using System.Linq.Expressions;
 
 namespace MasterFileProject
 {
@@ -22,7 +23,8 @@ namespace MasterFileProject
             InitializeComponent();
         }
         // 4.1.	Create a Dictionary data structure with a TKey of type integer and a TValue of type string, name the new structure “MasterFile”.
-        public static Dictionary<int, string> MasterFile = new Dictionary<int, string>();
+        //  public static Dictionary<int, string> MasterFile = new Dictionary<int, string>();
+        public static SortedDictionary<int, string> MasterFile = new SortedDictionary<int, string>();
         // 4.2.	Create a method that will read the data from the .csv file
         // into the Dictionary data structure when the form loads.
         #region Form Load
@@ -159,7 +161,7 @@ namespace MasterFileProject
                 // member must be added to the Dictionary data structure.
                 else if (!string.IsNullOrEmpty(staffIdTextbox.Text) && string.IsNullOrEmpty(staffNameTextbox.Text))
                 {
-                    if (ValidID(staffIdTextbox.Text))
+                    if (!ValidID(staffIdTextbox.Text))
                     {
                         AdminForm adminFrom = new AdminForm(staffIdTextbox.Text);
                         adminFrom.ShowDialog();
@@ -202,13 +204,18 @@ namespace MasterFileProject
         private void filteredListbox_KeyDown(object sender, KeyEventArgs e)
         {
             generalFromStatusMessage.Text = "";
-            if (e.KeyCode == Keys.Enter)
+            int selectedIndex = filteredListbox.SelectedIndex;
+            if (e.KeyCode == Keys.Enter && selectedIndex >= 0)
             {
                 string curItem = filteredListbox.SelectedItem.ToString();
                 var staffArray = curItem.Split('\t');
                 staffIdTextbox.Text = staffArray[0];
                 staffNameTextbox.Text = staffArray[1];
                 generalFromStatusMessage.Text = "Staff member selected.";
+            }
+            else
+            {
+                generalFromStatusMessage.Text = "Move arrow keys and press Enter to select staff.";
             }
         }
         #endregion
