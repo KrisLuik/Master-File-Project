@@ -118,7 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="helplistTextbox.Text" xml:space="preserve">
-    <value>Clear Staff ID (Alt + R)
+    <value>Move from Staff ID textbox to Listbox (Shift + Tab) 
+
+Clear Staff ID (Alt + R)
 
 Clear Staff Name (Alt + D)
 
@@ -128,9 +130,7 @@ Navigate Filtered Listbox using up/down arrow keys.
 
 Select Staff member by pressing enter.
 
-Open Admin Form (Alt + A)
-
-Move from ID textbox to listbox (Shift + Tab) </value>
+Open Admin Form (Alt + A)</value>
   </data>
   <metadata name="statusstripGeneralForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

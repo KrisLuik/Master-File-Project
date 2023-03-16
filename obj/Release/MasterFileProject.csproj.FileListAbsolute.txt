@@ -10,3 +10,15 @@ C:\Users\30045325\Documents\GitHub\MasterFileProject\Master-File-Project\obj\Rel
 C:\Users\30045325\Documents\GitHub\MasterFileProject\Master-File-Project\obj\Release\MasterFileProject.csproj.CoreCompileInputs.cache
 C:\Users\30045325\Documents\GitHub\MasterFileProject\Master-File-Project\obj\Release\MasterFileProject.exe
 C:\Users\30045325\Documents\GitHub\MasterFileProject\Master-File-Project\obj\Release\MasterFileProject.pdb
+C:\Users\krist\Desktop\MasterFileProject\bin\Release\MasterFileProject.exe.config
+C:\Users\krist\Desktop\MasterFileProject\bin\Release\MasterFileProject.exe
+C:\Users\krist\Desktop\MasterFileProject\bin\Release\MasterFileProject.pdb
+C:\Users\krist\Desktop\MasterFileProject\obj\Release\MasterFileProject.csproj.AssemblyReference.cache
+C:\Users\krist\Desktop\MasterFileProject\obj\Release\MasterFileProject.csproj.SuggestedBindingRedirects.cache
+C:\Users\krist\Desktop\MasterFileProject\obj\Release\MasterFileProject.AdminForm.resources
+C:\Users\krist\Desktop\MasterFileProject\obj\Release\MasterFileProject.GeneralForm.resources
+C:\Users\krist\Desktop\MasterFileProject\obj\Release\MasterFileProject.Properties.Resources.resources
+C:\Users\krist\Desktop\MasterFileProject\obj\Release\MasterFileProject.csproj.GenerateResource.cache
+C:\Users\krist\Desktop\MasterFileProject\obj\Release\MasterFileProject.csproj.CoreCompileInputs.cache
+C:\Users\krist\Desktop\MasterFileProject\obj\Release\MasterFileProject.exe
+C:\Users\krist\Desktop\MasterFileProject\obj\Release\MasterFileProject.pdb
